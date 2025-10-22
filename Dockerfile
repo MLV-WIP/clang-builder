@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     wget \
     pkg-config \
+    ca-certificates \
     \
     # Cleanup
     && rm -rf /var/lib/apt/lists/*
