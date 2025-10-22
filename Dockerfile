@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     clang-20 \
     clang++-20 \
+    libstdc++-14-dev \
     make \
     cmake \
     \
