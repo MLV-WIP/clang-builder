@@ -2,14 +2,14 @@ FROM debian:bookworm-slim
 
 # Set labels for container metadata
 LABEL maintainer="Michael VanLoon <michaelv9876@gmail.com>"
-LABEL description="Lightweight C/C++ builder container with clang-19, cmake, and testing frameworks"
+LABEL description="Lightweight C/C++ builder container with clang-20, cmake, and testing frameworks"
 
 # Update package lists and install development tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
     # Core build tools
     build-essential \
-    clang-19 \
-    clang++-19 \
+    clang-20 \
+    clang++-20 \
     make \
     cmake \
     \
@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgmock-dev \
     \
     # LLVM sanitizers
-    libclang-rt-19-dev \
+    libclang-rt-20-dev \
     \
     # Additional utilities
     git \
@@ -30,8 +30,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Create symlinks for default clang/clang++ versions
-RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-19 100 && \
-    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-19 100 && \
+RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-20 100 && \
+    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-20 100 && \
     update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100 && \
     update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++ 100
 
