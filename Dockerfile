@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM ubuntu:24.04
 
 # Set labels for container metadata
 LABEL maintainer="Michael VanLoon <michaelv9876@gmail.com>"
