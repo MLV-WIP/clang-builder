@@ -1,14 +1,14 @@
 # clang-builder
 
-A lightweight Docker container for building C/C++ projects with Clang 20, CMake, and testing frameworks.
+A lightweight Docker container for building C/C++ projects with Clang 22, CMake, and testing frameworks.
 
 ## Features
 
-- **Base Image**: Debian bookworm-slim (minimal footprint)
-- **Compiler**: Clang 20 with C++ support
+- **Base Image**: Ubuntu 26.04 LTS (Resolute Raccoon)
+- **Compiler**: Clang 22 with C++ support
 - **Build Tools**: GNU Make, CMake
 - **Testing**: Google Test (gtest) and Google Mock (gmock)
-- **Sanitizers**: LLVM sanitizers for detecting memory, thread, and undefined behavior issues
+- **Sanitizers**: LLVM sanitizers via `libclang-rt-22-dev` (ASan, TSan, UBSan; includes modern TSan ASLR handling)
 - **Utilities**: Git, curl, wget, pkg-config
 
 ## Quick Start
@@ -33,12 +33,14 @@ docker run --rm -v $(pwd):/workspace ghcr.io/MLV-WIP/clang-builder:latest bash -
 
 ## Included Tools and Versions
 
-- **Clang**: 20.x
-- **CMake**: Latest from bookworm-slim
-- **Google Test**: Latest from debian packages
-- **Google Mock**: Latest from debian packages
-- **GNU Make**: Latest from bookworm-slim
-- **Git**: Latest from bookworm-slim
+- **Clang / LLVM**: 22.x
+- **libclang-rt**: 22-dev (sanitizer runtimes)
+- **libstdc++**: 16-dev
+- **CMake**: From Ubuntu 26.04
+- **Google Test**: From Ubuntu packages
+- **Google Mock**: From Ubuntu packages
+- **GNU Make**: From Ubuntu 26.04
+- **Git**: From Ubuntu 26.04
 
 ## Environment
 
